@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Aleya</title>
+  <style>
+    :root {
+      --pink-1: #ffe9f3;
+      --pink-2: #ffc7e3;
+      --pink-3: #ff8fc6;
+      --pink-4: #ff4d9d;
+      --orange: #ff8d6a;
+      --text: #5d3b5a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #fff8fb 0%, #ffeaf4 35%, #ffd8ec 100%);
+      overflow: hidden;
+      color: var(--text);
+    }
+
+    body {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .sparkles, .hearts {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .sparkles span {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(255,255,255,0.9);
+      animation: sparkleFloat linear infinite;
+    }
+
+    .hearts span {
+      position: absolute;
+      font-size: 26px;
+      opacity: 0.75;
+      animation: heartFloat ease-in-out infinite;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      width: min(92vw, 540px);
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 30px;
+      padding: 42px 30px 34px;
+      text-align: center;
+      box-shadow:
+        0 20px 55px rgba(255, 93, 168, 0.18),
+        0 0 30px rgba(255, 183, 214, 0.2);
+      animation: slideUp 1.1s ease-out both;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffe5f3, #ffd3eb);
+      color: var(--pink-4);
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .photo-frame {
+      width: min(78%, 260px);
+      height: 260px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255, 141, 190, 0.9);
+      box-shadow:
+        0 14px 28px rgba(255, 96, 150, 0.18),
+        0 0 18px rgba(255, 148, 196, 0.25);
+      background: linear-gradient(135deg, #ffd8ec, #fff4f9);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 7vw, 62px);
+      line-height: 1.08;
+      color: var(--pink-4);
+      text-shadow: 0 0 18px rgba(255, 109, 181, 0.32);
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
+
+    .subtitle {
+      margin: 18px auto 28px;
+      max-width: 430px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(93, 59, 86, 0.9);
+    }
+
+    .gift-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 17px 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink-4), var(--orange));
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      box-shadow:
+        0 12px 30px rgba(255, 96, 150, 0.35),
+        0 0 20px rgba(255, 140, 190, 0.3);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    .gift-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow:
+        0 18px 40px rgba(255, 96, 150, 0.42),
+        0 0 24px rgba(255, 140, 190, 0.35);
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.97);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 8px rgba(255, 109, 181, 0.25);
+      }
+      100% {
+        text-shadow:
+          0 0 12px rgba(255, 109, 181, 0.45),
+          0 0 24px rgba(255, 109, 181, 0.35),
+          0 0 40px rgba(255, 109, 181, 0.2);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 12px 30px rgba(255, 96, 150, 0.35);
+      }
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 18px 35px rgba(255, 96, 150, 0.5);
+      }
+    }
+
+    @keyframes sparkleFloat {
+      0% {
+        transform: translateY(110vh) scale(0.5);
+        opacity: 0;
+      }
+      10% { opacity: 0.9; }
+      100% {
+        transform: translateY(-20vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes heartFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translateY(-18px) rotate(12deg);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .card {
+        padding: 30px 18px 24px;
+      }
+
+      .photo-frame {
+        width: min(78%, 220px);
+        height: 220px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .gift-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true"></div>
+  <div class="hearts" aria-hidden="true"></div>
+
+  <div class="card">
+    <div class="badge">Birthday Surprise</div>
+
+    <div class="photo-frame">
+      <img src="aleya.jpg" alt="Aleya" />
+    </div>
+
+    <h1>Happy Birthday<br>Aleya 💗</h1>
+
+    <p class="subtitle">
+      Today is all about celebrating you ✨<br>
+      A little surprise has been made especially for you 💕
+    </p>
+
+    <a href="https://bit.ly/aleya-bday" class="gift-btn">🎁 Open Your Gift</a>
+  </div>
+
+  <script>
+    const sparkleContainer = document.querySelector('.sparkles');
+    const heartContainer = document.querySelector('.hearts');
+
+    for (let i = 0; i < 28; i++) {
+      const dot = document.createElement('span');
+      dot.style.left = `${Math.random() * 100}%`;
+      dot.style.top = `${Math.random() * 100}%`;
+      dot.style.animationDuration = `${6 + Math.random() * 8}s`;
+      dot.style.animationDelay = `${Math.random() * 5}s`;
+      sparkleContainer.appendChild(dot);
+    }
+
+    const hearts = ['💖', '💗', '💕', '💞', '💘'];
+    for (let i = 0; i < 12; i++) {
+      const heart = document.createElement('span');
+      heart.textContent = hearts[i % hearts.length];
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.top = `${Math.random() * 100}%`;
+      heart.style.animationDuration = `${5 + Math.random() * 7}s`;
+      heart.style.animationDelay = `${Math.random() * 3}s`;
+      heart.style.fontSize = `${18 + Math.random() * 18}px`;
+      heartContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
